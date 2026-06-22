@@ -65,6 +65,7 @@ That's the up-path — the methods on a model that fights back.
 - `MISSION_SUMMARY.md` — the honest measured verdict (read this first)
 - `FACTORY.md` · `DESIGN_SOUL.md` — the swappable-souls architecture
 - `MODEL_CARD_v3.md` — the canonical model card (= the HF README)
+- `RESTORE.md` — how to reconstruct everything from GitHub + HF (the local dir is safe to delete)
 
 ## License
 
