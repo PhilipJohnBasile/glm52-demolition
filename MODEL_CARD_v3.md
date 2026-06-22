@@ -7,6 +7,14 @@ pipeline_tag: text-generation
 language: [en]
 tags: [mlx, apple-silicon, moe, pruned, quantized, soul-targeted, agentic, local-agent, glm]
 private: false
+datasets: [philipjohnbasile/glm52-demolition-data]
+model-index:
+- name: GLM-5.2-Demolition-q4a4-soul-MLX
+  results:
+  - task: { type: text-generation, name: Code Generation }
+    dataset: { name: HumanEval, type: openai_humaneval }
+    metrics:
+    - { type: pass@1, value: 69.0, name: "pass@1 (HumanEval-164, single-shot, verifier-scored)" }
 ---
 
 # GLM-5.2-Demolition · q4a4-soul (v3)
