@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Bauhaus · Feature</title>
+<!-- Bauhaus: form follows function; primary geometry (circle/square/triangle); primaries (red/blue/yellow);
+     bold asymmetry; the union of art and craft. Itten/Albers color, Moholy-Nagy composition. -->
+<style>
+  :root{
+    --red:oklch(0.58 0.20 27); --blue:oklch(0.52 0.18 255); --yellow:oklch(0.86 0.16 95);
+    --ink:oklch(0.16 0.01 60); --paper:oklch(0.97 0.004 95);
+    --s-2:16px; --s-3:24px; --s-4:32px; --s-6:48px; --s-8:64px;
+  }
+  *{box-sizing:border-box; margin:0}
+  body{font:16px/1.5 "Futura",system-ui,sans-serif; color:var(--ink); background:var(--paper)}
+  .feature{max-width:768px; margin:0 auto; padding:var(--s-8) var(--s-3);
+           display:grid; grid-template-columns:repeat(2,1fr); gap:var(--s-6) var(--s-4); align-items:center}
+  .feature__shapes{display:grid; grid-template-columns:repeat(2,1fr); gap:var(--s-2); aspect-ratio:1}
+  .shape{width:100%; height:100%}
+  .shape--circle{background:var(--red); border-radius:50%}
+  .shape--square{background:var(--blue)}
+  .shape--tri{width:0; height:0; border-left:64px solid transparent; border-right:64px solid transparent; border-bottom:128px solid var(--yellow); align-self:center; justify-self:center}
+  .shape--bar{background:var(--ink)}
+  .feature__title{font-size:49px; line-height:1.0; font-weight:700; letter-spacing:-0.02em; text-transform:uppercase}
+  .feature__body{font-size:20px; line-height:1.5; margin-top:var(--s-3); max-width:512px}
+</style>
+</head>
+<body>
+  <section class="feature">
+    <div class="feature__shapes">
+      <span class="shape shape--circle"></span>
+      <span class="shape shape--square"></span>
+      <span class="shape shape--tri"></span>
+      <span class="shape shape--bar"></span>
+    </div>
+    <div>
+      <h1 class="feature__title">Form follows function</h1>
+      <p class="feature__body">Geometry is honest. The circle, the square, the triangle — primary forms in primary color, arranged by structure, not ornament.</p>
+    </div>
+  </section>
+</body>
+</html>

@@ -1,0 +1,20 @@
+Write a Python function to merge two sorted lists into one sorted list.
+Explain how a hash table handles collisions, step by step.
+Prove that the square root of 2 is irrational.
+Refactor this loop into a list comprehension and explain why it is clearer.
+What is the time complexity of binary search, and why is it logarithmic?
+Implement a FastAPI endpoint that creates a user with a Pydantic schema.
+Describe the difference between TCP and UDP and when to use each.
+Write a SQL query to find customers who placed more than three orders last month.
+Fix this bug: the function returns None instead of the sum of the list.
+Write a recursive function to compute the factorial of n, with a base case.
+Explain the CSS box model and how margin, border, and padding interact.
+What causes a deadlock, and what are two ways to prevent one?
+Write a unit test for a function that validates email addresses.
+Describe the actor model of concurrency and its advantages.
+How does a generational garbage collector decide what to collect?
+Implement quicksort in Rust with an in-place partition.
+Explain what a closure is in JavaScript, with a concrete example.
+Write a SQL query to find the second-highest salary in an employees table.
+Summarize the tradeoffs between optimistic and pessimistic locking.
+Given a failing pytest, walk through how you would diagnose the root cause.

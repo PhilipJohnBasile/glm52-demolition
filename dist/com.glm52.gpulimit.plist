@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.glm52.gpulimit</string>
+  <!-- Raise the Apple-Silicon GPU wired-memory ceiling so the 99 GB GLM-5.2 model
+       has KV-cache headroom (default ~110 GB caps the 101.6 GB model at 92% -> Metal OOM).
+       122000 MB = 122 GB, leaving ~6 GB for macOS on a 128 GB machine. -->
+  <key>ProgramArguments</key>
+  <array>
+    <string>/usr/sbin/sysctl</string>
+    <string>iogpu.wired_limit_mb=122000</string>
+  </array>
+  <key>RunAtLoad</key>
+  <true/>
+</dict>
+</plist>

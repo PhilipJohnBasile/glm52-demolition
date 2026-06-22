@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>De Stijl · Composition</title>
+<!-- De Stijl / Mondrian: primaries + black/white, the asymmetric grid of black rules, rectangular planes,
+     dynamic equilibrium. Neoplasticism — reduce to the essential: line, plane, primary color. -->
+<style>
+  :root{
+    --red:oklch(0.57 0.21 27); --blue:oklch(0.45 0.18 258); --yellow:oklch(0.87 0.17 96);
+    --black:oklch(0.16 0.01 60); --white:oklch(0.98 0.003 95);
+    --rule:8px;
+  }
+  *{box-sizing:border-box; margin:0}
+  body{font:16px/1.5 system-ui,sans-serif; background:var(--black); display:grid; place-items:center; min-height:100vh; padding:24px}
+  .canvas{
+    width:360px; height:360px; background:var(--black);
+    display:grid; grid-template-columns:2fr 1fr 1fr; grid-template-rows:2fr 1fr 1fr; gap:var(--rule); padding:var(--rule);
+  }
+  .plane{background:var(--white)}
+  .plane--red{background:var(--red); grid-column:1; grid-row:1 / span 2}
+  .plane--blue{background:var(--blue); grid-column:2 / span 2; grid-row:3}
+  .plane--yellow{background:var(--yellow); grid-column:3; grid-row:1}
+</style>
+</head>
+<body>
+  <div class="canvas">
+    <span class="plane plane--red"></span>
+    <span class="plane"></span>
+    <span class="plane plane--yellow"></span>
+    <span class="plane"></span>
+    <span class="plane plane--blue"></span>
+  </div>
+</body>
+</html>

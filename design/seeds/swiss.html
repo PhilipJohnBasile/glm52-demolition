@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Swiss · Index</title>
+<!-- Swiss / International Typographic Style: the mathematical grid, asymmetric balance, Akzidenz/Helvetica,
+     objective hierarchy, signal-red accent, generous negative space. Müller-Brockmann / Hofmann. -->
+<style>
+  :root{
+    --ink:oklch(0.18 0.01 250); --paper:oklch(0.97 0.004 95); --red:oklch(0.57 0.21 27);
+    --muted:oklch(0.46 0.01 250);
+    --s-1:8px; --s-2:16px; --s-3:24px; --s-4:32px; --s-6:48px; --s-8:64px;
+  }
+  *{box-sizing:border-box; margin:0}
+  body{font:16px/1.5 Helvetica,"Helvetica Neue",Arial,system-ui,sans-serif; color:var(--ink); background:var(--paper)}
+  .sheet{max-width:768px; margin:0 auto; padding:var(--s-8) var(--s-3);
+         display:grid; grid-template-columns:1fr 2fr; gap:var(--s-6) var(--s-4)}
+  .sheet__num{font-size:12px; letter-spacing:0.08em; font-weight:700; color:var(--red);
+              border-top:2px solid var(--red); padding-top:var(--s-1)}
+  .sheet__lead{grid-column:2; font-size:39px; line-height:1.05; letter-spacing:-0.02em; font-weight:700; max-width:512px}
+  .sheet__label{font-size:12px; letter-spacing:0.08em; text-transform:uppercase; font-weight:700; color:var(--muted);
+                border-top:1px solid var(--ink); padding-top:var(--s-1)}
+  .sheet__body{grid-column:2; font-size:16px; line-height:1.6; max-width:512px}
+</style>
+</head>
+<body>
+  <article class="sheet">
+    <p class="sheet__num">01 / Index</p>
+    <h1 class="sheet__lead">Order is the foundation of clarity.</h1>
+    <p class="sheet__label">Principle</p>
+    <p class="sheet__body">The grid is not a cage — it is the structure that lets information breathe. Every element placed by reason, nothing by accident. Restraint is the discipline that makes the essential legible.</p>
+  </article>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "_comment": "Portable template. `dist/setup.sh` rewrites commands to absolute, per-machine paths (resolved callsieve + this repo's venv python) for robustness. callsieve = primary zero-token retrieval; code-rag = semantic (fastembed) fallback for queries with no lexical/symbol overlap.",
+  "mcpServers": {
+    "callsieve": {
+      "type": "stdio",
+      "command": "callsieve",
+      "args": ["mcp"],
+      "env": {}
+    },
+    "code-rag": {
+      "type": "stdio",
+      "command": "python3",
+      "args": ["scripts/16_rag_mcp.py", "--index", "rag/index"],
+      "env": {}
+    }
+  }
+}

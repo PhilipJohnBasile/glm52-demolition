@@ -1,0 +1,33 @@
+# ── big / re-derivable: never commit (on HF or re-derivable) ──
+models/
+heal/
+calib/
+lean-verify/
+rag/
+logs/
+research_index/
+design_out/
+.venv/
+venv/
+
+# ── weights / binaries / data blobs (code repo = code only; data → HF dataset) ──
+*.safetensors
+*.npz
+*.gguf
+*.bin
+*.pt
+*.mlx
+*.jsonl
+*.parquet
+*.arrow
+
+# ── python / os cruft ──
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+.ipynb_checkpoints/
+*.log
+
+# ── nested third-party / forks (their own repos) ──
+reap-mlx/

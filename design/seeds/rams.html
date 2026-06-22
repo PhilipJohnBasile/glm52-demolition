@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Rams · Settings</title>
+<!-- Dieter Rams / Braun: "as little design as possible." Functional, unobtrusive, honest. Warm-neutral palette,
+     one muted accent, generous space, no decoration. Good design is as little design as possible. -->
+<style>
+  :root{
+    --ink:oklch(0.26 0.006 80); --ink-soft:oklch(0.53 0.006 80); --paper:oklch(0.95 0.004 80);
+    --card:oklch(0.99 0.002 80); --line:oklch(0.88 0.005 80); --accent:oklch(0.62 0.10 55);
+    --s-1:8px; --s-2:16px; --s-3:24px; --s-4:32px; --radius:8px;
+  }
+  *{box-sizing:border-box; margin:0}
+  body{font:16px/1.5 system-ui,-apple-system,sans-serif; color:var(--ink); background:var(--paper);
+       display:grid; place-items:center; min-height:100vh; padding:var(--s-3)}
+  .panel{width:400px; background:var(--card); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden}
+  .panel__head{padding:var(--s-3) var(--s-4); border-bottom:1px solid var(--line)}
+  .panel__title{font-size:16px; font-weight:600}
+  .panel__hint{font-size:12px; color:var(--ink-soft); margin-top:var(--s-1)}
+  .row{display:flex; align-items:center; justify-content:space-between; padding:var(--s-3) var(--s-4); border-bottom:1px solid var(--line)}
+  .row:last-child{border-bottom:0}
+  .toggle{width:40px; height:24px; border-radius:24px; background:var(--line); position:relative; flex:none}
+  .toggle--on{background:var(--accent)}
+  .toggle::after{content:""; position:absolute; top:2px; left:2px; width:20px; height:20px; border-radius:50%; background:oklch(1 0 0)}
+  .toggle--on::after{left:18px}
+</style>
+</head>
+<body>
+  <section class="panel">
+    <div class="panel__head">
+      <p class="panel__title">Notifications</p>
+      <p class="panel__hint">Only what matters — nothing more.</p>
+    </div>
+    <div class="row"><span>Product updates</span><span class="toggle toggle--on"></span></div>
+    <div class="row"><span>Weekly digest</span><span class="toggle"></span></div>
+    <div class="row"><span>Security alerts</span><span class="toggle toggle--on"></span></div>
+  </section>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Sign in</title>
+<style>
+  :root{
+    --brand:oklch(0.58 0.20 262); --brand-strong:oklch(0.48 0.21 262); --ink:oklch(0.24 0.02 262);
+    --ink-soft:oklch(0.52 0.02 262); --surface:oklch(0.985 0.004 262); --line:oklch(0.90 0.012 262);
+    --s-1:8px; --s-2:16px; --s-3:24px; --s-4:32px; --radius:12px;
+  }
+  *{box-sizing:border-box; margin:0}
+  body{font:16px/1.5 system-ui,-apple-system,sans-serif; color:var(--ink); background:var(--surface);
+       display:grid; place-items:center; min-height:100vh; padding:var(--s-3)}
+  .auth{width:360px; background:oklch(1 0 0); border:1px solid var(--line); border-radius:var(--radius);
+        padding:var(--s-4); display:grid; gap:var(--s-3); box-shadow:0 12px 32px oklch(0.24 0.02 262 / 0.08)}
+  .auth__title{font-size:25px; line-height:1.2; font-weight:700; letter-spacing:-0.01em}
+  .field{display:grid; gap:var(--s-1)}
+  .field label{font-size:12px; font-weight:600; color:var(--ink-soft)}
+  .field input{font:16px/1.5 system-ui; padding:var(--s-2); border:1px solid var(--line);
+               border-radius:8px; background:var(--surface); color:var(--ink)}
+  .field input:focus{outline:2px solid var(--brand); outline-offset:1px; border-color:var(--brand)}
+  .auth__submit{appearance:none; border:0; border-radius:8px; padding:var(--s-2); font:600 16px/1 system-ui;
+                color:oklch(1 0 0); background:var(--brand); cursor:pointer; margin-top:var(--s-1)}
+  .auth__submit:hover{background:var(--brand-strong)}
+</style>
+</head>
+<body>
+  <form class="auth">
+    <h1 class="auth__title">Sign in</h1>
+    <div class="field"><label for="e">Email</label><input id="e" type="email" placeholder="you@company.com"></div>
+    <div class="field"><label for="p">Password</label><input id="p" type="password" placeholder="Your password"></div>
+    <button class="auth__submit">Continue</button>
+  </form>
+</body>
+</html>

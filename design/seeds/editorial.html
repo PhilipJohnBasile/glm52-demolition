@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Editorial · Feature</title>
+<!-- Editorial rigor (Vignelli, Tschichold, Pentagram): "design is one." Typographic hierarchy carries the
+     whole layout; a tight grid; restraint; timeless type pairing (a display face + one text face). -->
+<style>
+  :root{
+    --ink:oklch(0.20 0.01 60); --ink-soft:oklch(0.48 0.01 60); --paper:oklch(0.98 0.004 85);
+    --rule:oklch(0.20 0.01 60); --accent:oklch(0.52 0.17 25);
+    --s-1:8px; --s-2:16px; --s-3:24px; --s-4:32px; --s-6:48px; --s-8:64px;
+  }
+  *{box-sizing:border-box; margin:0}
+  body{font:16px/1.6 Georgia,"Times New Roman",serif; color:var(--ink); background:var(--paper)}
+  .article{max-width:640px; margin:0 auto; padding:var(--s-8) var(--s-3)}
+  .article__kicker{font:600 12px/1 system-ui; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent);
+                   padding-bottom:var(--s-1); border-bottom:2px solid var(--rule); display:inline-block}
+  .article__title{font-size:49px; line-height:1.05; letter-spacing:-0.02em; font-weight:700; margin-top:var(--s-3)}
+  .article__standfirst{font-size:20px; line-height:1.5; color:var(--ink-soft); margin-top:var(--s-3); font-style:italic}
+  .article__body{font-size:16px; line-height:1.7; margin-top:var(--s-4); columns:2; column-gap:var(--s-6)}
+  .article__body p{margin-bottom:var(--s-2)}
+  .article__body p:first-child::first-letter{font-size:49px; float:left; line-height:1; padding:0 var(--s-1) 0 0; font-weight:700}
+</style>
+</head>
+<body>
+  <article class="article">
+    <span class="article__kicker">Essay</span>
+    <h1 class="article__title">The discipline of the grid.</h1>
+    <p class="article__standfirst">Good typography is invisible: it carries meaning without calling attention to itself.</p>
+    <div class="article__body">
+      <p>Hierarchy is not decoration — it is the order in which the eye is meant to travel. Size, weight, and space do the work that color and ornament cannot.</p>
+      <p>A single text face, set well, outperforms a dozen set carelessly. Restraint is the editor's craft applied to the page.</p>
+    </div>
+  </article>
+</body>
+</html>

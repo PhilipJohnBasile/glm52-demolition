@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>KPI</title>
+<style>
+  :root{
+    --brand:oklch(0.62 0.19 255); --pos:oklch(0.62 0.16 150); --ink:oklch(0.24 0.02 255);
+    --ink-soft:oklch(0.52 0.02 255); --surface:oklch(0.985 0.004 255); --line:oklch(0.92 0.01 255);
+    --s-1:8px; --s-2:16px; --s-3:24px; --radius:12px;
+  }
+  *{box-sizing:border-box; margin:0}
+  body{font:16px/1.5 system-ui,-apple-system,sans-serif; color:var(--ink); background:var(--surface);
+       display:grid; place-items:center; min-height:100vh; padding:var(--s-3)}
+  .kpi{width:280px; background:oklch(1 0 0); border:1px solid var(--line); border-radius:var(--radius);
+       padding:var(--s-3); display:grid; gap:var(--s-1); box-shadow:0 1px 2px oklch(0.24 0.02 255 / 0.06)}
+  .kpi__label{font-size:12px; letter-spacing:0.04em; text-transform:uppercase; color:var(--ink-soft); font-weight:600}
+  .kpi__value{font-size:31px; line-height:1.1; font-weight:700; letter-spacing:-0.02em}
+  .kpi__delta{font-size:12px; font-weight:600; color:var(--pos); display:flex; align-items:center; gap:var(--s-1)}
+  .kpi__spark{margin-top:var(--s-2); height:48px; display:flex; align-items:flex-end; gap:4px}
+  .kpi__spark i{flex:1; background:var(--brand); border-radius:2px; opacity:0.85}
+</style>
+</head>
+<body>
+  <article class="kpi">
+    <p class="kpi__label">Monthly revenue</p>
+    <p class="kpi__value">$48,250</p>
+    <p class="kpi__delta">&#9650; 12.4% vs last month</p>
+    <div class="kpi__spark">
+      <i style="height:40%"></i><i style="height:55%"></i><i style="height:45%"></i>
+      <i style="height:70%"></i><i style="height:60%"></i><i style="height:85%"></i><i style="height:100%"></i>
+    </div>
+  </article>
+</body>
+</html>

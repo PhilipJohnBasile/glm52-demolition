@@ -1,0 +1,30 @@
+[
+ {
+  "class": "disclosable",
+  "bug": "src/query/tokens.rs .div_ceil(4)-> / 4",
+  "passed": true,
+  "cands": 1,
+  "secs": 20
+ },
+ {
+  "class": "disclosable",
+  "bug": "src/query/skeleton.rs  - 1-> + 1",
+  "passed": false,
+  "cands": null,
+  "secs": 15
+ },
+ {
+  "class": "subtle",
+  "bug": "src/query/skeleton.rs  > -> < ",
+  "passed": true,
+  "cands": 5,
+  "secs": 36
+ },
+ {
+  "class": "subtle",
+  "bug": "src/query/classify.rs  >= -> > ",
+  "passed": true,
+  "cands": 1,
+  "secs": 23
+ }
+]

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Hero</title>
+<style>
+  :root{
+    --brand:oklch(0.62 0.19 255); --ink:oklch(0.22 0.02 255); --ink-soft:oklch(0.50 0.02 255);
+    --surface:oklch(0.99 0.004 255); --line:oklch(0.92 0.01 255);
+    --s-1:8px; --s-2:16px; --s-3:24px; --s-4:32px; --s-8:64px;
+  }
+  *{box-sizing:border-box; margin:0}
+  body{font:16px/1.5 system-ui,-apple-system,sans-serif; color:var(--ink); background:var(--surface)}
+  .hero{max-width:768px; margin:0 auto; padding:var(--s-8) var(--s-3); display:grid; gap:var(--s-4); text-align:center}
+  .hero__eyebrow{font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--brand); font-weight:600}
+  .hero__title{font-size:49px; line-height:1.1; letter-spacing:-0.03em; font-weight:700}
+  .hero__sub{font-size:20px; line-height:1.5; color:var(--ink-soft); max-width:512px; margin:0 auto}
+  .hero__actions{display:flex; gap:var(--s-2); justify-content:center; flex-wrap:wrap; margin-top:var(--s-1)}
+  .btn{appearance:none; border:0; border-radius:8px; padding:var(--s-2) var(--s-4); font:600 16px/1 system-ui; cursor:pointer}
+  .btn--primary{background:var(--brand); color:oklch(1 0 0)}
+  .btn--ghost{background:oklch(1 0 0); color:var(--ink); border:1px solid var(--line)}
+</style>
+</head>
+<body>
+  <section class="hero">
+    <p class="hero__eyebrow">Ship faster</p>
+    <h1 class="hero__title">The local AI that verifies every line.</h1>
+    <p class="hero__sub">A frontier coding model on your Mac — no cloud keys, no cookie-cutter output.</p>
+    <div class="hero__actions">
+      <button class="btn btn--primary">Get started</button>
+      <button class="btn btn--ghost">Read the docs</button>
+    </div>
+  </section>
+</body>
+</html>

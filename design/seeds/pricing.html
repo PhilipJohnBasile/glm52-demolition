@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Pricing</title>
+<style>
+  :root{
+    /* OKLCH palette — ONE brand hue (262, indigo); neutrals carry a hint of it, never pure gray */
+    --brand: oklch(0.55 0.20 262);
+    --brand-strong: oklch(0.45 0.21 262);
+    --ink: oklch(0.25 0.03 262);
+    --ink-soft: oklch(0.52 0.02 262);
+    --surface: oklch(0.99 0.005 262);
+    --line: oklch(0.92 0.01 262);
+    /* 8px spacing scale + modular type via custom properties */
+    --s-1:8px; --s-2:16px; --s-3:24px; --s-4:32px; --s-6:48px;
+    --radius:16px;
+  }
+  *{box-sizing:border-box;margin:0}
+  body{
+    font:16px/1.5 system-ui,-apple-system,sans-serif; color:var(--ink);
+    background:var(--surface); padding:var(--s-6) var(--s-3);
+    display:grid; place-items:center; min-height:100vh;
+  }
+  .plan{
+    width:320px; background:oklch(1 0 0); border:1px solid var(--line);
+    border-radius:var(--radius); padding:var(--s-4); display:grid; gap:var(--s-3);
+    box-shadow:0 1px 2px oklch(0.25 0.03 262 / 0.05), 0 12px 32px oklch(0.25 0.03 262 / 0.07);
+  }
+  .plan__name{font-size:12px; letter-spacing:0.08em; text-transform:uppercase; font-weight:600; color:var(--brand)}
+  .plan__price{font-size:39px; line-height:1.1; font-weight:700; letter-spacing:-0.02em}
+  .plan__price span{font-size:16px; font-weight:400; color:var(--ink-soft)}
+  .plan__features{display:grid; gap:var(--s-2); list-style:none; padding:0; color:var(--ink-soft)}
+  .plan__features li{display:flex; gap:var(--s-1); align-items:center}
+  .plan__features li::before{content:""; width:8px; height:8px; border-radius:50%; background:var(--brand); flex:none}
+  .plan__cta{
+    appearance:none; border:0; border-radius:8px; padding:var(--s-2) var(--s-3);
+    font:600 16px/1 system-ui; color:oklch(1 0 0); background:var(--brand); cursor:pointer;
+    transition:background 120ms ease;
+  }
+  .plan__cta:hover{background:var(--brand-strong)}
+</style>
+</head>
+<body>
+  <article class="plan">
+    <p class="plan__name">Pro</p>
+    <p class="plan__price">$29<span>&nbsp;/mo</span></p>
+    <ul class="plan__features">
+      <li>Unlimited projects</li>
+      <li>Priority support</li>
+      <li>Advanced analytics</li>
+    </ul>
+    <button class="plan__cta">Start free trial</button>
+  </article>
+</body>
+</html>
