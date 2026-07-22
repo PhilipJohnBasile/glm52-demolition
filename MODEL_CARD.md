@@ -174,10 +174,10 @@ memory-capped at ~11–14 tok/s — ALL speculative methods measured-DEAD on thi
 | Metric | Value |
 |---|---|
 | Size | 99 GiB / ~106 GB (from 381 GB mxfp4 / ~1.5 TB bf16) |
-| HumanEval pass@1 | **116/164 (70.7%)** — full benchmark, single-shot, hidden-test scored; **held across the soul-v2 heal** |
-| Math GSM8K | **8/12 (66%)** — small held-out subset; note: the verbose-CoT model needs a tighter answer-parser for the full set |
+| HumanEval pass@1 | **116/164 (70.7%)** — full benchmark, single-shot, hidden-test scored; **held across the soul-v2 heal**. This is the *souled* artifact's run (OVERNIGHT_LOG.md:800); the un-souled v3 base measures **114/164 (69%)** — the README badge number (HEADTOHEAD_RESEARCH.md, definitive run #105) |
+| Math GSM8K | *⚠️ withheld — 8/12 on this run but 0–1/12 in later logs (harness-confounded; see `dist/MODEL_CARD.md`). Pending a clean rerun. An earlier version of this row published 8/12 (66%) as a result* |
 | miniF2F-test (formal proof) | **32/226 (14.2%)** — pass@4, Lean-verified, contamination-checked; a general model, NOT a specialized prover |
-| Algebra (SymPy-checked) | **3/4 (75%)** |
+| Algebra (SymPy-checked) | *⚠️ withheld — 2–3/4 across runs; same harness caveat. An earlier version published 3/4 (75%)* |
 | Decode speed (single-stream) | **~11–14 tok/s** — the memory floor; speculative measured-dead ([SPEED.md](SPEED.md)) |
 | Batched throughput | **2.6× at B=8** (15.8→41.1 tok/s) · 1.74× at B=6 on the live serve — concurrent requests batch natively |
 
@@ -185,8 +185,9 @@ memory-capped at ~11–14 tok/s — ALL speculative methods measured-DEAD on thi
 prompt-lookup / dsa-block-size) was *measured* and is dead on this memory-bound MoE. The real win is **batching: a
 measured 2.6× throughput**, which `mlx_lm.server` delivers **natively** on concurrent requests. Receipts: [`SPEED.md`](SPEED.md).
 
-**Benchmark honesty:** HumanEval is the **full 164** (116/164 = 70.7%, single-shot); GSM8K (**n=12**) is a **small
-held-out subset**; miniF2F **is** the full 226. Every number is **contamination-checked** (0% / 0% / 0.4% near-dup) —
+**Benchmark honesty:** HumanEval is the **full 164** (116/164 = 70.7% souled; the un-souled base is 114/164 = 69%,
+which is the README badge figure); GSM8K is **withheld** (harness-confounded — see the table); miniF2F **is** the
+full 226. Every number is **contamination-checked** (0% / 0% / 0.4% near-dup) —
 **reasoned, not memorized**. Honest frontier-vs-us comparison + projections: [`BENCHMARKS.md`](BENCHMARKS.md).
 
 ## The factory — swappable souls & code, one base

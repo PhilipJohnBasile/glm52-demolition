@@ -6,6 +6,13 @@
 > **Every single-stream speedup lever has been benchmarked, and every one is dead on this MoE.**
 > ~11–14 tok/s is the hard memory floor. You cannot speculate your way under it.
 
+*(Consistency note, 2026-07-22: the later batch-scaling run below recorded **15.8 tok/s at B=1** —
+above this stated 11–14 band, in this same file. The contradiction is flagged rather than silently
+resolved: treat single-stream as an observed 11–16 range whose exact value moved between runs, not
+a hard ceiling at 14. The conclusion that speculation cannot beat single-token decode is unaffected.
+Expert counts in this file cite the v1-era 30% prune — 77 of 256 kept; v3 keeps 23% ≈ 59. The
+router-mismatch and union-of-experts arguments are unchanged, and are stronger at 59 than at 77.)*
+
 | Lever | Hoped | **MEASURED** | Why it fails |
 |---|---|---|---|
 | MTP self-speculative | ~2.6× | **0% accept** (`89_mtp_gate.py`) | the native head is UN-pruned (256 experts) vs our pruned 77 → its MoE/router don't match → garbage drafts |

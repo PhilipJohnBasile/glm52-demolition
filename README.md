@@ -8,7 +8,7 @@ soul-ify, and serve it with a verifier-first agent.**
 [![HumanEval-164](https://img.shields.io/badge/HumanEval--164-69%25-green)](MISSION_SUMMARY.md)
 [![License](https://img.shields.io/badge/license-MIT-black)](LICENSE)
 
-> Takes [`zai-org/GLM-5.2`](https://huggingface.co/zai-org/GLM-5.2) (743B total / 39B active, MIT) → REAP
+> Takes [`zai-org/GLM-5.2`](https://huggingface.co/zai-org/GLM-5.2) (744B total / 39B active, MIT) → REAP
 > soul-targeted expert prune → 4-bit MLX quant → LoRA heal → **~98 GB, HumanEval-164 = 69%, on a laptop.**
 
 ---
@@ -42,7 +42,8 @@ HumanEval-164**, real-verifier-scored). The deeper finding — *the demolished b
 ## Results (measured, never faked)
 
 - **HumanEval-164 pass@1 = 114/164 (69%)** — full set, single-shot, hidden-test scored (easy n=20 = 95%).
-- **Speed:** ~10 tok/s — memory-bandwidth-bound (inherent to a 98 GB model on M5; spec-decode nets ~1.05×).
+- **Speed:** ~11–14 tok/s single-stream — memory-bandwidth-bound (inherent to a 98 GB model on M5;
+  spec-decode nets ~1.05×; receipts in [SPEED.md](SPEED.md). An earlier draft of this line said ~10).
 - **The honest dead-lever map** (what *doesn't* work — saves you weeks): clean-base-beats-demolished,
   soul-heals-don't-lift-the-floor, spec-decode-~1.05×-on-M5. Full table in `MISSION_SUMMARY.md`.
 

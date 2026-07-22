@@ -13,7 +13,7 @@ tags: [mlx, moe, code, agentic, glm, pruned, quantized, verified-decoding, apple
 
 **One line:** we took `zai-org/GLM-5.2` (743B-parameter Mixture-of-Experts, ~381 GB at 4-bit) and
 demolished it to **99 GB** so it runs **fully on-device on a MacBook Pro M5 Max (128 GB)** — then
-healed it and wrapped it in a **47-tool local agent** that does things a cloud model structurally
+healed it and wrapped it in a **51-tool local agent** that does things a cloud model structurally
 cannot: the **compiler steers every line it writes**, it **can't fake a passing test or leak a
 secret**, and it can be **fine-tuned on *your* private repo** so it writes in your style.
 
@@ -35,7 +35,7 @@ coding + design for **TS/JS/Python/Rust/Go/HTML/CSS** + Postgres) by out-*verify
   Practical *only* on Apple Silicon — unified memory lets the model (GPU) and compiler (CPU) share RAM.
 - **The verifier mesh:** every output meets its real tool — compile+run+**idiomatic lint** (clippy/ruff/
   gofmt/prettier) for 5 langs, **SQL** (sqlite), **math** (SymPy), **proofs** (**Lean 4**), design (render+see).
-- **A 47-tool agent** with **five defense layers** the frontier lacks out of the box:
+- **A 51-tool agent** with **five defense layers** the frontier lacks out of the box:
   **trust** (checkpoint/rollback, secret-scan, prompt-injection guard, audit, risk-gate),
   **reliability** (constraint-pinning vs context-rot, false-success guard, flaky-test re-run, onboarding map),
   **self-improvement** (skill library, large-output pointers, clarify-before-assuming),
@@ -82,9 +82,11 @@ on the one Mac — and a `factory`-dispatcher soul makes the model route request
 python dist/install_glm_dsa_patch.py          # patch mlx_lm (venv AND LM Studio's bundled engine)
 GLM_STREAM_EVAL=0 python -m mlx_lm.server --model models/GLM-5.2-q3a4-v4 \
     --adapter-path heal/adapters-v4           # serve (OpenAI-compatible); v2 + heal/adapters also ship
-# drive the 47-tool agent on your repo:
+# drive the 51-tool agent on your repo:
 python scripts/57_tool_agent.py --repo /path/to/your/repo --apply --task "..." --test "cargo test"
-# speed: try --dsa-block-size 32/64/128 (free, pick fastest). External draft is Metal-unstable here; MTP self-spec is the real path.
+# speed: try --dsa-block-size 32/64/128 (free, pick fastest). External draft is Metal-unstable here.
+# (Update: MTP self-spec, called "the real path" in an earlier version of this line, was later
+#  gated at 0% accept -- see SPEED.md. No speculative path is live; batching is the speed lever.)
 ```
 In **LM Studio**: run the patch, fully quit + reopen, then load the model.
 
@@ -93,7 +95,7 @@ In **LM Studio**: run the patch, fully quit + reopen, then load the model.
 | Metric | Value |
 |---|---|
 | Size | 99 GB (from 381 GB mxfp4 / ~1.5 TB bf16) |
-| HumanEval pass@1 | **116/164 (70%)** — full HumanEval-164, single-shot, hidden-test scored *(supersedes an earlier 19/20 n=20 sample that ran fluke-high)* |
+| HumanEval pass@1 | **116/164 (70%)** — full HumanEval-164, single-shot, hidden-test scored, on the *souled* artifact *(supersedes an earlier 19/20 n=20 sample that ran fluke-high; the un-souled v3 base measures 114/164 = 69% — the README badge number)* |
 | Math GSM8K | *⚠️ withheld — inconsistent across runs (8/12 here, 0–1/12 in later logs; harness-confounded). Pending a clean rerun before we publish a number.* |
 | Algebra (SymPy-checked) | *⚠️ withheld — 2–3/4 across runs; same caveat.* |
 | Decode speed | **11.3 tok/s** (no draft) — see the speed note in limitations |
@@ -106,10 +108,12 @@ In **LM Studio**: run the patch, fully quit + reopen, then load the model.
   cost of a 743B-class MoE on a laptop. **Measured dead-ends** (don't bother): 4-bit re-quant is *slower*
   for single-token decode (bandwidth-bound, smaller wins); active-experts 8→4 gives no win at batch=1.
   **Real path (re-mapped June 2026, web-verified):** the MoE matmul + M5 accelerators are *already* optimal in
-  MLX 0.31.2 (we ride `gather_qmm` + the M5 tensor path — 11 tok/s is genuine, not a misconfig). Remaining levers:
-  **MTP self-speculative** — our accept-rate gate (`89_mtp_gate.py`) is built; honest expectation is **~1.1–1.5×
-  on a quantized MoE, NOT the 2.6×** of full-precision — and a true-sparse **DSA-prefill kernel** (the real,
-  upstreamable frontier). Not a quant change.
+  MLX 0.31.2 (we ride `gather_qmm` + the M5 tensor path — 11 tok/s is genuine, not a misconfig).
+  ~~Remaining levers: **MTP self-speculative** — our accept-rate gate (`89_mtp_gate.py`) is built; honest
+  expectation is **~1.1–1.5× on a quantized MoE, NOT the 2.6×** of full-precision~~ — **measured after this
+  was written: the gate ran and MTP self-spec scored 0% accept** (the un-pruned native head mismatches the
+  pruned router — receipts in SPEED.md), so that lever is dead. The remaining upstreamable frontier is a
+  true-sparse **DSA-prefill kernel**. Not a quant change.
 - **Multilingual** ability reduced (optional vocab-trim drops ~31% of tokens).
 - **Design** is competent but not yet design-soul-elite (correct structure, but missed OKLCH/grid when
   tested) — the design-canon heal closes this.
@@ -118,5 +122,5 @@ In **LM Studio**: run the patch, fully quit + reopen, then load the model.
 
 ## Attribution & license
 **MIT.** Base model © **Z.ai** (`zai-org/GLM-5.2`, MIT-licensed) — so this derivative is MIT too: free
-to use, modify, and redistribute **with attribution to Z.ai**. The demolition / healing / 47-tool agent
+to use, modify, and redistribute **with attribution to Z.ai**. The demolition / healing / 51-tool agent
 tooling is this repo's contribution.

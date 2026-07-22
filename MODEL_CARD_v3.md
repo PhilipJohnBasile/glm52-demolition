@@ -55,8 +55,9 @@ this artifact is the **best-possible demolition**, a research result, not a fron
 4. **Heal** (`06_heal_lora`) — LoRA on vanilla FOCUS-9 gold; souls heal separately per facet.
 
 ## Honest scope
-- **Speed:** ~10 tok/s — memory-bandwidth-bound (inherent to a 98 GB model on M5; spec-decode nets only
-  ~1.05× here, so it's not used).
+- **Speed:** ~11–14 tok/s single-stream — memory-bandwidth-bound (inherent to a 98 GB model on M5;
+  spec-decode nets only ~1.05× here, so it's not used; receipts in [SPEED.md](SPEED.md). An earlier
+  draft of this line said ~10).
 - **Strengths:** the FOCUS-9 vanilla languages + whichever soul is mounted. **Not** general trivia — those
   experts were deliberately pruned. Best driven by a verifier-first agent (the compiler steers each line).
 - **Eval:** **HumanEval-164 pass@1 = 114/164 (69%)** — full set, single-shot, scored on hidden tests by real
