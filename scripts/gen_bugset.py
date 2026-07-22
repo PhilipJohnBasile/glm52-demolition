@@ -4,7 +4,8 @@ measurement. Each entry = a mutation that COMPILES but breaks a test, with its c
 tests. Mix of DISCLOSABLE (div_ceil/saturating_sub) and SUBTLE (>/<, ==/!=) so we can report pass-rate
 BY CLASS. Writes BUGSET.json. No model needed — pure cargo/git on CPU."""
 import subprocess, re, os, json
-CS = "/Users/pjb/git/callsieve"
+# Target repo to mutate (a separate Rust checkout); override with CALLSIEVE_REPO.
+CS = os.environ.get("CALLSIEVE_REPO", os.path.expanduser("~/git/callsieve"))
 DISCLOSABLE = [(".div_ceil(4)", " / 4"), (".saturating_sub(1)", ".saturating_sub(2)"), (" + 1", " + 2")]
 SUBTLE = [(" > ", " < "), (" >= ", " > "), (" == ", " != "), (" < ", " > ")]
 SRCS = ["src/query/tokens.rs", "src/query/classify.rs", "src/query/skeleton.rs"]

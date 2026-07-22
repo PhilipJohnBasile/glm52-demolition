@@ -4,7 +4,8 @@
 The 'teacher' is best-of-N+verifier (provably better than single-shot, the √H result); SFT distills it
 into the student so it one-shots next time (recovers accuracy AND speed). No FP teacher, crash-safe."""
 import subprocess, re, os, json, time, sys
-CS="/Users/pjb/git/callsieve"; GLM="/Users/pjb/git/glm52-demolition"
+CS=os.environ.get("CALLSIEVE_REPO", os.path.expanduser("~/git/callsieve"))  # target repo to mutate
+GLM=os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))          # this repo (scripts/..)
 OUT=os.path.join(GLM,"recover_data.jsonl")
 # real, test-breaking mutations (from the file-scan): disclosable + subtle, across files
 BUGS=[("src/query/tokens.rs",".div_ceil(4)"," / 4"),("src/query/skeleton.rs"," > "," < "),

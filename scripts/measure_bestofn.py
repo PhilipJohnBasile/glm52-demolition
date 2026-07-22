@@ -4,7 +4,8 @@ AND is confirmed to BREAK a test before measuring (else a non-breaking mutation 
 worktree per bug (own target). Reports pass-rate BY CLASS + candidates-to-fix — the honest ours-armed
 product number."""
 import subprocess, re, os, json, time
-CS="/Users/pjb/git/callsieve"; GLM="/Users/pjb/git/glm52-demolition"
+CS=os.environ.get("CALLSIEVE_REPO", os.path.expanduser("~/git/callsieve"))  # target repo to mutate
+GLM=os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))          # this repo (scripts/..)
 BUGS=[("disclosable","src/query/tokens.rs",".div_ceil(4)"," / 4"),
       ("disclosable","src/query/skeleton.rs"," - 1"," + 1"),
       ("subtle","src/query/skeleton.rs"," > "," < "),

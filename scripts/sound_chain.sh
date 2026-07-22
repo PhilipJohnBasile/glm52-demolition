@@ -3,7 +3,8 @@
 # then runs the sound-flywheel (model writes sound code → verify('sound') keeps the good audio → fills the
 # gold), then heals the SOUND SOUL on it. The full night: factory_chain (7 souls) → post_chain (repair soul)
 # → sound_chain (sound soul). Fully unattended; the GPU never idles.
-cd /Users/pjb/git/glm52-demolition
+REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"   # repo root = scripts/..
+cd "$REPO_ROOT"
 LOG=heal/sound_chain.log
 echo "$(date) :: sound-chain up — waiting for LOOP_CLOSED" >> "$LOG"
 while [ ! -f heal/LOOP_CLOSED ]; do sleep 120; done

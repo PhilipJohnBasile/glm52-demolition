@@ -9,15 +9,15 @@ GLM-5.2-Demolition is a project aimed at taking the 743B-parameter Mixture-of-Ex
 
 ### Key Components & Directories:
 - `src/`: Core logic modules.
-  - [constrained_decode.py](file:///Users/pjb/git/glm52-demolition/src/constrained_decode.py): Steered/constrained line-by-line decoding.
-  - [verifier_mesh.py](file:///Users/pjb/git/glm52-demolition/src/verifier_mesh.py) & [verifiers.py](file:///Users/pjb/git/glm52-demolition/src/verifiers.py): Multi-language/tool execution and lint checking.
-  - [trust.py](file:///Users/pjb/git/glm52-demolition/src/trust.py): Security scan, secret scanner, and prompt injection guards.
-  - [dynamic_bits.py](file:///Users/pjb/git/glm52-demolition/src/dynamic_bits.py): Importance-weighted dynamic quantization allocator.
-  - [stability.py](file:///Users/pjb/git/glm52-demolition/src/stability.py) & [serve_stable.py](file:///Users/pjb/git/glm52-demolition/scripts/serve_stable.py): Memory-capped stable serving setup.
+  - [constrained_decode.py](../src/constrained_decode.py): Steered/constrained line-by-line decoding.
+  - [verifier_mesh.py](../src/verifier_mesh.py) & [verifiers.py](../src/verifiers.py): Multi-language/tool execution and lint checking.
+  - [trust.py](../src/trust.py): Security scan, secret scanner, and prompt injection guards.
+  - [dynamic_bits.py](../src/dynamic_bits.py): Importance-weighted dynamic quantization allocator.
+  - [stability.py](../src/stability.py) & [serve_stable.py](../scripts/serve_stable.py): Memory-capped stable serving setup.
 - `scripts/`: Execution scripts for demolition, healing, evaluation, and agents.
-  - [57_tool_agent.py](file:///Users/pjb/git/glm52-demolition/scripts/57_tool_agent.py): The main 51-tool ReAct agent loop.
-  - [41_verified_decode.py](file:///Users/pjb/git/glm52-demolition/scripts/41_verified_decode.py): Live verified decoding driver.
-  - [86_scoreboard.py](file:///Users/pjb/git/glm52-demolition/scripts/86_scoreboard.py) & [87_lean_study.py](file:///Users/pjb/git/glm52-demolition/scripts/87_lean_study.py): Scoreboard tracking and contamination-clean Lean study loop.
+  - [57_tool_agent.py](../scripts/57_tool_agent.py): The main 51-tool ReAct agent loop.
+  - [41_verified_decode.py](../scripts/41_verified_decode.py): Live verified decoding driver.
+  - [86_scoreboard.py](../scripts/86_scoreboard.py) & [87_lean_study.py](../scripts/87_lean_study.py): Scoreboard tracking and contamination-clean Lean study loop.
 
 ---
 
@@ -36,12 +36,12 @@ GLM-5.2-Demolition is a project aimed at taking the 743B-parameter Mixture-of-Ex
 - Run the server with `GLM_STREAM_EVAL=0` to avoid per-layer paging overhead since the model fits entirely in 128 GB.
 
 ### C. Design Soul & Visual UI Verification
-- Prepend the `CANON` system prompt from [design_canon.py](file:///Users/pjb/git/glm52-demolition/src/design_canon.py) for all design/UI generation tasks.
+- Prepend the `CANON` system prompt from [design_canon.py](../src/design_canon.py) for all design/UI generation tasks.
 - Avoid framework templates (Bootstrap/Tailwind) unless explicitly requested. Use oklch-only colors, modular type scales, 8px grid alignments, and custom animations.
 - Design verifier gates (`audit_design`) must strip HTML/CSS comments before parsing to avoid comment false-positives, and must bound regex px quantifiers (`\d{1,7}`) to avoid ReDoS on long digit repeats.
 
 ### D. Security & Key Scanning
-- The secret scanner in [trust.py](file:///Users/pjb/git/glm52-demolition/src/trust.py) scans for modern formats including `sk-proj-` (with hyphens), `hf_`, `AIza`, and `sk_live_`. Keep regexes updated and clean.
+- The secret scanner in [trust.py](../src/trust.py) scans for modern formats including `sk-proj-` (with hyphens), `hf_`, `AIza`, and `sk_live_`. Keep regexes updated and clean.
 - White-spaces and control chars must be normalized (`\s+`) before running the prompt-injection detector (`detect_injection`).
 
 ---

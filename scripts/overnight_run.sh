@@ -1,7 +1,8 @@
 #!/bin/bash
 # Autonomous overnight driver: heal-wait -> upload -> serve -> benchmarks -> report.
 # Launched via Bash run_in_background; progress streamed to OVERNIGHT_LOG.md.
-cd /Users/pjb/git/glm52-demolition
+REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"   # repo root = scripts/..
+cd "$REPO_ROOT"
 LOG=OVERNIGHT_LOG.md
 REPO=philipjohnbasile/GLM-5.2-Demolition-q3a4-MLX
 say() { echo "[$(date '+%m-%d %H:%M')] $*" >> "$LOG"; }

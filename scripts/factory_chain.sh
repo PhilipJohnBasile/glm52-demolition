@@ -2,7 +2,8 @@
 # Factory chain (#73/#74/#76/#77) — heal each domain specialty as a SWAPPABLE adapter on v4, sequentially,
 # waiting for the GPU between each. Autonomous ~12h: 6 souls here + gamedev already running = 7 total.
 # Each is v4 + adapters-<spec>; the model-factory swaps the adapter to change the model's specialty.
-cd /Users/pjb/git/glm52-demolition
+REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"   # repo root = scripts/..
+cd "$REPO_ROOT"
 LOG=heal/factory_chain.log
 echo "$(date) :: factory-chain START — queue: legacy security fullstack science factory perfumery" >> "$LOG"
 for spec in legacy security fullstack science factory perfumery; do

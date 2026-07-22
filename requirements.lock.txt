@@ -171,7 +171,8 @@ python-dotenv==1.2.1
 pytweening==1.2.0
 pyyaml==6.0.3
 readme-renderer==45.0
--e file:///Users/pjb/git/glm52-demolition/reap-mlx
+# nested fork, gitignored — clone it into <repo root>/reap-mlx, then install from the repo root
+-e ./reap-mlx
 referencing==0.37.0
 regex==2026.1.15
 requests==2.32.5

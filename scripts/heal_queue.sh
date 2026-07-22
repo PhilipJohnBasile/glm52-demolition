@@ -5,7 +5,8 @@
 # safe to re-run on every wake. Each adapter is self-contained (Pattern A):
 # the proven soul_gold2 base + that module's specialty gold.
 set -u
-cd /Users/pjb/git/glm52-demolition || exit 1
+REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"   # repo root = scripts/..
+cd "$REPO_ROOT" || exit 1
 REPO=philipjohnbasile/GLM-5.2-Demolition-q3a4-MLX
 ORDER=(soul-v3 fullstack gamedev legacy)
 

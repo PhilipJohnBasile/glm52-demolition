@@ -11,8 +11,8 @@ throwaway `git worktree` of callsieve (reset between) so they can't corrupt the 
 import argparse, json, os, random, re, shutil, subprocess as sp, time
 from datetime import datetime, timedelta
 
-CS = "/Users/pjb/git/callsieve"
-GLM = "/Users/pjb/git/glm52-demolition"
+CS = os.environ.get("CALLSIEVE_REPO", os.path.expanduser("~/git/callsieve"))  # target repo to mutate
+GLM = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))          # this repo (scripts/..)
 RESULTS = os.path.join(GLM, "HEADTOHEAD.jsonl")
 PORT = 8080
 random.seed()

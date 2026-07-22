@@ -3,7 +3,8 @@
 # repair-SFT data from the FULL flywheel output, heals soul-v4 on it (adapters-repair), and runs the
 # repair-eval gate. Unattended: mine -> heal -> measure, the loop closes by itself. Launch in bg now; it
 # sleeps until the 7 souls finish (~10h), then does the tail.
-cd /Users/pjb/git/glm52-demolition
+REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"   # repo root = scripts/..
+cd "$REPO_ROOT"
 LOG=heal/post_chain.log
 echo "$(date) :: post-chain up — waiting for FACTORY_DONE" >> "$LOG"
 while [ ! -f heal/FACTORY_DONE ]; do sleep 120; done

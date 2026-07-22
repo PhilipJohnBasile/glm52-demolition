@@ -19,7 +19,7 @@ autonomous driver) goes first; GPU-bound work queues behind it. **GPU-free code 
    March-2026 / ICLR-2026 REAP update). **Why:** modest free accuracy gain on the next prune. Write now, runs later.
 3. **CallSieve agentic-RAG upgrade** *(user-greenlit)* — expose **hierarchical retrieval as tools** (keyword +
    semantic + chunk-read, the A-RAG pattern) + iterative multi-hop, instead of one-shot fetch. **Look at the
-   `/Users/pjb/git/callsieve` repo first**, then apply minimally.
+   `callsieve` repo first** (separate checkout, `$CALLSIEVE_REPO`, default `~/git/callsieve`), then apply minimally.
 4. **mlx-optiq probe** — `pip install mlx-optiq` + a load-test script (mount our q3a4 base + a rank-16 adapter,
    confirm per-request hot-swap). **Why:** it solves the factory's instant-swap (no 3-min reload). Validate when the GPU frees.
 

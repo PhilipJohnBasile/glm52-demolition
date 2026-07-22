@@ -5,11 +5,11 @@ everything itself + REFUSE to ship broken code. A cloud flagship can't be tuned 
 code, can't constrain its own decoding with your compiler, and never runs offline. We can.
 
   # 1) GPU-free: turn your repo into style training data ({"messages":[user,assistant]})
-  python scripts/64_own_your_repo.py harvest --repo /Users/pjb/git/callsieve
+  python scripts/64_own_your_repo.py harvest --repo ~/git/callsieve
   # 2) overnight: LoRA fine-tune on it (base = the healed v4)
   python scripts/64_own_your_repo.py train --base models/GLM-5.2-q3a4-v4
   # 3) demo: serve, then run the agent on a real task + prove it can't fake success
-  python scripts/64_own_your_repo.py demo --repo /Users/pjb/git/callsieve \
+  python scripts/64_own_your_repo.py demo --repo ~/git/callsieve \
       --task "add a doctest to the busiest public fn in src/lib.rs" --test "cargo test"
 """
 import argparse
