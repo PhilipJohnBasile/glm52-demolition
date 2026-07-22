@@ -37,10 +37,11 @@ hf download philipjohnbasile/GLM-5.2-Demolition-q4a4-soul-MLX --local-dir models
 ## The up-path (recommended over restoring the demolished model)
 
 The demolished model is a research artifact at its ceiling. To actually *build* on this work, use the
-model-agnostic core instead:
+model-agnostic core instead. Note: `agent-toolkit` is private internal tooling and is not published,
+so the clone below will not resolve for outside readers.
 
 ```bash
-git clone https://github.com/PhilipJohnBasile/agent-toolkit   # verifiers, soul canons, flywheels
+git clone https://github.com/PhilipJohnBasile/agent-toolkit   # private; verifiers, soul canons, flywheels
 # then: heal a clean base (e.g. Qwen3-Coder-30B) with the HF dataset, drive it with merle
 ```
 
